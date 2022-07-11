@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="helloWorld">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="../libs/angular-1.8.2/angular.js"></script>
+    <script>
+        // O Angular basicamente são módulos, o que a gente cria são módulos.
+        // Agora tenho que criar o meu Controller e a minha View
+        // Posso pegar o retorno da minha função .module() que vou usar para registrar componentes como o Controller
+        angular.module("helloWorld", []);
+        // Posso localizar o módulo de forma similar à criação porém sem o segundo parâmetro.
+        /* O Scope que faz a ligação entre o Controller e a View é injetado como dependência pra dentro do 
+        Controller, ele vai ser a porta de entrada pra View.
+        */
+        // A View não é um arquivo, a View é simplesmente um local onde você colocou o atributo ng-controller. 
+        /* A View basicamente é um conjunto de tags, e num mesmo .html posso ter várias ng-controller criando 
+        várias Views associadas a um controller diferente*/
+        angular.module("helloWorld").controller("helloWorldCtrl", function ($scope) {
+            $scope.message = "Hello World!";
+        });
+
+
+    </script>
+</head>
+<body>
+    <div ng-controller="helloWorldCtrl">
+        {{ message }}
+    </div>
+</body>
+</html>
